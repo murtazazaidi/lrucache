@@ -1,0 +1,15 @@
+{
+  "name": "lrucache",
+  "version": "1.0.0",
+  "description": "Least Recently Used Cache based on JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lru",
+    "cache"
+  ],
+  "author": "Murtaza Zaidi",
+  "license": "MIT"
+}
