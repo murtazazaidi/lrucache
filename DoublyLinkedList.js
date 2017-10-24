@@ -7,7 +7,7 @@ class DoublyLinkedList {
     this.tail = null;
   }
 
-  const add = (nodeValue) => {
+  add = (nodeValue) => {
     const newNode = new Node(nodeValue);
     if (this._size) {
       this.tail.next = newNode;
@@ -22,13 +22,13 @@ class DoublyLinkedList {
     return newNode;
   };
 
-  const remove = (position) => {
+  remove = (position) => {
     const currentNode = this.head;
     const length = this._size;
 
     // 1st use-case: invalid position
     if (length === 0 || position < 1 || position > length) {
-       return false;
+       throw new Error('Invalid Position');
     }
 
     // 2nd use-case: first node is removed
@@ -42,7 +42,6 @@ class DoublyLinkedList {
           // 2nd use-case: there is no second node
           this.tail = null;
        }
-
     } else if (position === this._size) {
       // 3rd use-case: the last node is removed
       this.tail = this.tail.prev;
@@ -57,17 +56,52 @@ class DoublyLinkedList {
 
       const afterNodeToDelete = currentNode.next;
       const beforeNodeToDelete = currentNode.prev;
-      let nodeToDelete = currentNode;
 
       beforeNodeToDelete.next = afterNodeToDelete;
       afterNodeToDelete.prev = beforeNodeToDelete;
-      const deletedNode = nodeToDelete;
-      delete deletedNode;
-      nodeToDelete = null;
+
+      delete currentNode;
     }
     this._size--;
+  };
 
-    return true;
+  searchNodeByValue = (value) => {
+    let currentNode = this.head;
+
+    // 1st use-case: an invalid position
+    if (!this._size) {
+      throw new Error('Empty List');
+    }
+
+    // 2nd use-case: a valid position
+    let position = 1;
+    while (position <= this._size) {
+      if (currentNode.value === value) {
+        return {
+          position,
+          node: currentNode,
+        };
+      }
+      currentNode = currentNode.next;
+      position++;
+    }
+
+    return null;
+  };
+
+  repositionToRecent = (key) => {
+    const currentPosition = this.searchNodeByValue(key);
+    if (!currentPosition) {
+      throw new Error('Node not found');
+    }
+    this.remove(currentPosition);
+    this.add(key);
+  };
+
+  removeLeastRecent = () => {
+    const leastRecent = this.head.value;
+    this.remove(1);
+    return leastRecent;
   };
 }
 
