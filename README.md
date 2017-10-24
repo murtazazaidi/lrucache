@@ -38,3 +38,17 @@ cache.add(key, value);
 cache.fetch('venus');
 // returns {radius: 6052, unit: "km", dayLength: 116.75}
 ```
+
+
+## Usage
+NodeJS should be installed
+```
+# Run once after cloning the poject to install dependencies
+npm install .
+
+# Run each time you want to run the script
+npm run build && npm run start
+
+# driver script is in index.js, feel free to experiment around
+```
+
