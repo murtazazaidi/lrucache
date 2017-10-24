@@ -1,5 +1,7 @@
 import LRUCache from './LRUCache.js';
 
+// driver showcasing LRUCache functionality
+
 const cache = new LRUCache(5);
 cache.add('a', 'Murtaza');
 cache.add('b', 'Adeel');

@@ -13,6 +13,7 @@ class DoublyLinkedList {
     this.print = this.print.bind(this);
   };
 
+  // adds a node to DoublyLinkedList, at tail
   add(nodeValue) {
     const newNode = new Node(nodeValue);
     if (this._size) {
@@ -27,6 +28,7 @@ class DoublyLinkedList {
     return newNode;
   };
 
+  // removes the node from DoublyLinkedList from given position
   remove(position) {
     let currentNode = this.head;
     const length = this._size;
@@ -68,6 +70,7 @@ class DoublyLinkedList {
     this._size--;
   };
 
+  // returns first node position where value matches queried value
   searchNodeByValue(value) {
     let currentNode = this.head;
 
@@ -89,6 +92,7 @@ class DoublyLinkedList {
     return null;
   };
 
+  // moves a node in DoublyLinkedList to tail
   repositionToRecent(key) {
     const currentPosition = this.searchNodeByValue(key);
     if (!currentPosition) {
@@ -98,12 +102,14 @@ class DoublyLinkedList {
     this.add(key);
   };
 
+  // removes node from head of DoublyLinkedList and return it's value
   removeLeastRecent() {
     const leastRecent = this.head.value;
     this.remove(1);
     return leastRecent;
   };
 
+  // prints DoublyLinkedList state from oldest to recent
   print() {
     let currentNode = this.head;
     let list = 'Oldest :'

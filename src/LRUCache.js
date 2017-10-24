@@ -46,6 +46,7 @@ class LRUCache {
     return data;
   };
 
+  // prints a snapshot of LRUCache instance
   inspect() {
     console.log('TOTAL SIZE', this.size());
     console.log('RECENT KEYS:');
