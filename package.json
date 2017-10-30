@@ -4,9 +4,9 @@
   "description": "Least Recently Used Cache based on JS",
   "main": "lib/LRUCache.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
-    "start": "node lib/example.js"
+    "start": "npm run test && node lib/example.js",
+    "test": "npm run build && mocha --require babel-register ./test/**/*.spec.js"
   },
   "keywords": [
     "lru",
@@ -23,6 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
   }
 }
