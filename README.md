@@ -1,3 +1,6 @@
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+ [![HitCount](http://hits.dwyl.io/murtazazaidi/lrucache.svg)](http://hits.dwyl.io/murtazazaidi/lrucache)
+
 # LRUCache for JS
 Least Recently Used Cache based on JavaScript
 
