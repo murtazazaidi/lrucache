@@ -2,17 +2,24 @@
   "name": "lrucache",
   "version": "1.0.0",
   "description": "Least Recently Used Cache based on JS",
-  "main": "lib/index.js",
+  "main": "lib/LRUCache.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
-    "start": "node lib/index.js"
+    "start": "node lib/example.js"
   },
   "keywords": [
     "lru",
-    "cache"
+    "cache",
+    "lrucache",
+    "least recently used cache"
   ],
-  "author": "Murtaza Zaidi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/murtazazaidi/lrucache.git"
+  },
+  "bugs": "https://github.com/murtazazaidi/lrucache/issues",
+  "author": "Murtaza Zaidi <murtazazaidi@outlook.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
