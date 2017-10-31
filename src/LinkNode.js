@@ -1,4 +1,4 @@
-class Node {
+class LinkNode {
   constructor(nodeValue, prev = null, next = null) {
     this.next = next;
     this.prev = prev;
@@ -6,4 +6,4 @@ class Node {
   }
 }
 
-export default Node;
+export default LinkNode;

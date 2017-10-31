@@ -1,4 +1,4 @@
-import Node from './Node.js';
+import LinkNode from './LinkNode.js';
 
 class DoublyLinkedList {
   constructor() {
@@ -15,7 +15,7 @@ class DoublyLinkedList {
 
   // adds a node to DoublyLinkedList, at tail
   add(nodeValue) {
-    const newNode = new Node(nodeValue);
+    const newNode = new LinkNode(nodeValue);
     if (this._size) {
       this.tail.next = newNode;
       newNode.prev = this.tail;
@@ -109,17 +109,6 @@ class DoublyLinkedList {
     return leastRecent;
   };
 
-  // prints DoublyLinkedList state from oldest to recent
-  print() {
-    let currentNode = this.head;
-    let list = 'Oldest :'
-    while(currentNode) {
-      list += ' -> ' + currentNode.value
-      currentNode = currentNode.next;
-    }
-    list += ' -> : Recent';
-    console.log(list);
-  }
 }
 
 export default DoublyLinkedList;
