@@ -11,7 +11,6 @@ class LRUCache {
     this.size = this.size.bind(this);
     this.add = this.add.bind(this);
     this.fetch = this.fetch.bind(this);
-    this.inspect = this.inspect.bind(this);
   }
 
   // returns size of items stored in LRUCache

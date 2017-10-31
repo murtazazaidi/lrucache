@@ -10,7 +10,6 @@ class DoublyLinkedList {
     this.searchNodeByValue = this.searchNodeByValue.bind(this);
     this.repositionToRecent = this.repositionToRecent.bind(this);
     this.removeLeastRecent = this.removeLeastRecent.bind(this);
-    this.print = this.print.bind(this);
   };
 
   // adds a node to DoublyLinkedList, at tail
