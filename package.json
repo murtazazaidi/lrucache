@@ -1,18 +1,20 @@
 {
-  "name": "lrucache",
+  "name": "simple-lrucache",
   "version": "1.0.0",
   "description": "Least Recently Used Cache based on JS",
   "main": "lib/LRUCache.js",
   "scripts": {
     "build": "babel src -d lib",
-    "start": "npm run test && node lib/example.js",
     "test": "npm run build && nyc mocha --require babel-register ./test/**/*.spec.js"
   },
   "keywords": [
     "lru",
     "cache",
     "lrucache",
-    "least recently used cache"
+    "least recently used cache",
+    "simple",
+    "simple cache",
+    "simple-lrucache"
   ],
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 import DoublyLinkedList from './DoublyLinkedList.js';
 
 class LRUCache {
-  constructor(constraint = 50) {
+  constructor(constraint = 100000) {
     // Map for keeping actual data
     this.data = {};
     // List to maintain the recent access (only hashkeys)
@@ -9,8 +9,8 @@ class LRUCache {
     // No of items to be stored at one time in Cache
     this.constraint = constraint;
     this.size = this.size.bind(this);
-    this.add = this.add.bind(this);
-    this.fetch = this.fetch.bind(this);
+    this.set = this.set.bind(this);
+    this.get = this.get.bind(this);
   }
 
   // returns size of items stored in LRUCache
@@ -18,8 +18,8 @@ class LRUCache {
     return this.doublyList._size;
   };
 
-  // adds an item to cache and marks it least recently used
-  add(key, value) {
+  // adds/updates an item to cache and marks it least recently used
+  set(key, value) {
     if (this.data[key]) {
       this.doublyList.repositionToRecent(key);
     } else if (this.size() < this.constraint) {
@@ -35,8 +35,8 @@ class LRUCache {
     this.data[key] = value;
   };
 
-  // fetches data from the cache and marks it least recently used
-  fetch(key) {
+  // fetches data from the cache if available and marks it least recently used
+  get(key) {
     const data = this.data[key];
     if (!data) {
       return null;

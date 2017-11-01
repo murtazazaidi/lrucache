@@ -11,36 +11,41 @@ describe('LRUCache', () => {
   });
 
   // Add five elements
-  cache.add('a', 'Adeel');
-  cache.add('b', 'Murtaza');
-  cache.add('c', 'Hammad');
-  cache.add('d', 'Ghalib');
-  cache.add('e', 'Mehak');
+  cache.set('a', 'Adeel');
+  cache.set('b', 'Murtaza');
+  cache.set('c', 'Hammad');
+  cache.set('d', 'Ghalib');
+  cache.set('e', 'Mehak');
 
-  it('adds provided items in the cache', () => {
+  it('sets provided items in the cache', () => {
     expect(cache.size()).to.equal(5);
   });
 
   // Add an item after CACHE_LIMIT has been reached
-  cache.add('f', 'Anns');
+  cache.set('f', 'Anns');
 
   it('removes the least recently used element when retention policy kicks in', () => {
     expect(cache.size()).to.equal(CACHE_LIMIT);
-    expect(cache.fetch('a')).to.equal(null);
+    expect(cache.get('a')).to.equal(null);
   });
 
   it('returns the cached item if available in LRUCache', () => {
-    expect(cache.fetch('b')).to.equal('Murtaza');
+    expect(cache.get('b')).to.equal('Murtaza');
   });
 
   it('updates the access history when an item is accessed', () => {
     // Add another item in cache to remove the least recently accessed item
-    cache.add('g', 'Irtaza');
+    cache.set('g', 'Irtaza');
     expect(cache.size()).to.equal(CACHE_LIMIT);
     // Item against key 'b' was accessed and now item against key 'c' is least recently accessed
-    expect(cache.fetch('c')).to.equal(null);
-    expect(cache.fetch('b')).to.equal('Murtaza');
+    expect(cache.get('c')).to.equal(null);
+    expect(cache.get('b')).to.equal('Murtaza');
   });
 
+  it('overrides the value against the key if key already exists', () => {
+    // updating value against key 'g'
+    cache.set('g', 'Mujtaba');
+    expect(cache.get('g')).to.equal('Mujtaba');
+  });
 
 });
