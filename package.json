@@ -5,7 +5,8 @@
   "main": "lib/LRUCache.js",
   "scripts": {
     "build": "babel src -d lib",
-    "test": "npm run build && nyc mocha --require babel-register ./test/**/*.spec.js"
+    "test": "npm run build && nyc mocha --require babel-register ./test/**/*.spec.js",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "lru",
