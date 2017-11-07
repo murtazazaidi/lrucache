@@ -58,14 +58,18 @@ cache.get('venus');
 // returns {radius: 6052, unit: "km", dayLength: 116.75}
 ```
 
+## Installation
+```
+npm install simple-lrucache
+```
 
 ## Usage
 ```javascript
 // using ES6 import
-import LRUCache from 'LRUCache';
+import LRUCache from 'simple-lrucache';
 
 // or using NodeJS require;
-var LRUCache = require('LRUCache');
+var LRUCache = require('simple-lrucache').default;
 
 var cache = new LRUCache(5);
 cache.set('a', 'Murtaza');
@@ -80,7 +84,7 @@ console.log(cache.get('c')); // return 'Hammad'
 ```
 
 
-## Build Process
+## Build Process for Project
 NodeJS should be installed
 ```
 # Run once after cloning the project to install dependencies
