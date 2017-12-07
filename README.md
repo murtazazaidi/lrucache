@@ -65,10 +65,10 @@ cache.get('venus');
 ```
 
 
-3. Clear Cache:
+4. Clear Cache:
 ```javascript
 cache.clearAll();
-// returns {radius: 6052, unit: "km", dayLength: 116.75}
+// clears all data in the cache 
 ```
 
 ## Installation
