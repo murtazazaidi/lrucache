@@ -48,4 +48,11 @@ describe('LRUCache', () => {
     expect(cache.get('g')).to.equal('Mujtaba');
   });
 
+  it('clears all data from the cache', () => {
+    // updating value against key 'g'
+    cache.clearAll();
+    expect(cache.get('g')).to.equal(null);
+    expect(cache.get('b')).to.equal(null);
+  });
+
 });

@@ -45,5 +45,13 @@ class LRUCache {
     return data;
   };
 
+  // clears all data from cache
+  clearAll() {
+    // Clearing all data in Hashmap
+    this.data = {};
+    // Clearing list to maintain the recent access
+    this.doublyList = new DoublyLinkedList();
+  }
+
 }
 export default LRUCache;
