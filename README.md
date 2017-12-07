@@ -64,6 +64,13 @@ cache.get('venus');
 // returns {radius: 6052, unit: "km", dayLength: 116.75}
 ```
 
+
+3. Clear Cache:
+```javascript
+cache.clearAll();
+// returns {radius: 6052, unit: "km", dayLength: 116.75}
+```
+
 ## Installation
 ```
 npm install simple-lrucache
@@ -87,6 +94,8 @@ cache.set('f', 'Anns');
 console.log(cache.get('a')); // returns null
 console.log(cache.get('b')); // returns 'Adeel'
 console.log(cache.get('c')); // return 'Hammad'
+cache.clearAll();
+console.log(cache.get('c')); // returns null
 ```
 
 
