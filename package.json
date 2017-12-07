@@ -5,8 +5,10 @@
   "main": "lib/LRUCache.js",
   "scripts": {
     "build": "babel src -d lib",
-    "test": "npm run build && nyc mocha --require babel-register ./test/**/*.spec.js",
-    "prepublish": "npm run build"
+    "local-test": "npm run build && nyc mocha --require babel-register ./test/**/*.spec.js",
+    "test": "npm run build && npm run report-coverage",
+    "prepublish": "npm run build",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "keywords": [
     "lru",
