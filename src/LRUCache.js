@@ -8,18 +8,21 @@ class LRUCache {
     this.doublyList = new DoublyLinkedList();
     // No of items to be stored at one time in Cache
     this.constraint = constraint;
-    this.size = this.size.bind(this);
-    this.set = this.set.bind(this);
-    this.get = this.get.bind(this);
-  }
+  };
 
-  // returns size of items stored in LRUCache
-  size() {
+  /**
+   * Returns size of items stored in LRUCache
+   */
+  size = () => {
     return this.doublyList._size;
   };
 
-  // adds/updates an item to cache and marks it least recently used
-  set(key, value) {
+  /**
+   * Adds/updates an item to cache and marks it least recently used
+   * @param {string} key
+   * @param {any} value
+   */
+  set = (key, value) => {
     if (this.data[key]) {
       this.doublyList.repositionToRecent(key);
     } else if (this.size() < this.constraint) {
@@ -35,8 +38,11 @@ class LRUCache {
     this.data[key] = value;
   };
 
-  // fetches data from the cache if available and marks it least recently used
-  get(key) {
+  /**
+   * Fetches data from the cache if available and marks it least recently used
+   * @param {string} key
+   */
+  get = (key) => {
     const data = this.data[key];
     if (!data) {
       return null;
@@ -45,13 +51,28 @@ class LRUCache {
     return data;
   };
 
-  // clears all data from cache
-  clearAll() {
+  /**
+   * Removes data from the cache and linkedlist if available
+   * @param {string} key
+   */
+  remove = (key) => {
+    const data = this.data[key];
+    if (!data) {
+      return null;
+    }
+    delete this.data[key];
+    this.doublyList.removeByValue(key);
+    return data;
+  };
+
+  /**
+   * Resets the cache
+   */
+  clearAll = () => {
     // Clearing all data in Hashmap
     this.data = {};
     // Clearing list to maintain the recent access
     this.doublyList = new DoublyLinkedList();
-  }
-
+  };
 }
 export default LRUCache;
