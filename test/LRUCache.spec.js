@@ -48,6 +48,24 @@ describe('LRUCache', () => {
     expect(cache.get('g')).to.equal('Mujtaba');
   });
 
+  it('removes the value from cache if value exists in cache', () => {
+    const sizeBeforeRemove = cache.size();
+    // removing value against key 'g'
+    cache.remove('g');
+    const sizeAfterRemove = cache.size();
+    expect(cache.get('g')).to.equal(null);
+    expect(sizeBeforeRemove).to.equal(sizeAfterRemove + 1);
+  });
+
+  it('does nothing on remove if the value does not exist in cache', () => {
+    const sizeBeforeRemove = cache.size();
+    // removing value against key 'g' which is already removed now
+    cache.remove('g');
+    const sizeAfterRemove = cache.size();
+    expect(cache.get('g')).to.equal(null);
+    expect(sizeBeforeRemove).to.equal(sizeAfterRemove);
+  });
+
   it('clears all data from the cache', () => {
     // updating value against key 'g'
     cache.clearAll();

@@ -5,15 +5,13 @@ class DoublyLinkedList {
     this._size = 0;
     this.head = null;
     this.tail = null;
-    this.add = this.add.bind(this);
-    this.remove = this.remove.bind(this);
-    this.searchNodeByValue = this.searchNodeByValue.bind(this);
-    this.repositionToRecent = this.repositionToRecent.bind(this);
-    this.removeLeastRecent = this.removeLeastRecent.bind(this);
   };
 
-  // adds a node to DoublyLinkedList, at tail
-  add(nodeValue) {
+  /**
+   * Adds a node to DoublyLinkedList, at tail
+   * @param {any} nodeValue
+   */
+  add = (nodeValue) => {
     const newNode = new LinkNode(nodeValue);
     if (this._size) {
       this.tail.next = newNode;
@@ -27,8 +25,11 @@ class DoublyLinkedList {
     return newNode;
   };
 
-  // removes the node from DoublyLinkedList from given position
-  remove(position) {
+  /**
+   * Removes the node from DoublyLinkedList from given position
+   * @param {number} position
+   */
+  remove = (position) => {
     let currentNode = this.head;
     const length = this._size;
 
@@ -69,8 +70,11 @@ class DoublyLinkedList {
     this._size--;
   };
 
-  // returns first node position where value matches queried value
-  searchNodeByValue(value) {
+  /**
+   * Returns first node position where value matches queried value
+   * @param {any} value
+   */
+  searchNodeByValue = (value) => {
     let currentNode = this.head;
 
     // 1st use-case: an invalid position
@@ -91,18 +95,31 @@ class DoublyLinkedList {
     return null;
   };
 
-  // moves a node in DoublyLinkedList to tail
-  repositionToRecent(key) {
+  /**
+   * Moves a node in DoublyLinkedList to tail
+   * @param {string} key
+   */
+  repositionToRecent = (key) => {
+    this.removeByValue(key);
+    this.add(key);
+  };
+
+  /**
+   * Searched and removes a node in DoublyLinkedList by value
+   * @param {string} key
+   */
+  removeByValue = (key) => {
     const currentPosition = this.searchNodeByValue(key);
     if (!currentPosition) {
       throw new Error('Node not found');
     }
     this.remove(currentPosition);
-    this.add(key);
-  };
+  }
 
-  // removes node from head of DoublyLinkedList and return it's value
-  removeLeastRecent() {
+  /**
+   * Removes node from head of DoublyLinkedList and return it's value
+   */
+  removeLeastRecent = () => {
     const leastRecent = this.head.value;
     this.remove(1);
     return leastRecent;

@@ -1,12 +1,6 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![HitCount](http://hits.dwyl.io/murtazazaidi/lrucache.svg)](http://hits.dwyl.io/murtazazaidi/lrucache) [![Build Status](https://travis-ci.org/murtazazaidi/lrucache.svg?branch=master)](https://travis-ci.org/murtazazaidi/lrucache) [![codecov](https://codecov.io/gh/murtazazaidi/lrucache/branch/master/graph/badge.svg)](https://codecov.io/gh/murtazazaidi/lrucache) [![npm version](https://badge.fury.io/js/simple-lrucache.svg)](https://badge.fury.io/js/simple-lrucache)  [![Dependency Status](https://david-dm.org/murtazazaidi/lrucache.svg)](https://david-dm.org/murtazazaidi/lrucache) [![devDependency Status](https://david-dm.org/murtazazaidi/lrucache/dev-status.svg)](https://david-dm.org/murtazazaidi/lrucache#info=devDependencies)
 
 
-# Badass Badges
-[![forthebadge](http://forthebadge.com/badges/uses-js.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/badges/powered-by-electricity.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/badges/makes-people-smile.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/badges/gluten-free.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/badges/oooo-kill-em.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/badges/built-with-swag.svg)](http://forthebadge.com)
-
-
 # LRUCache for JS
 Least Recently Used Cache based on JavaScript
 
@@ -65,10 +59,18 @@ cache.get('venus');
 ```
 
 
-4. Clear Cache:
+4. Removal:
+```javascript
+cache.remove('venus');
+// returns {radius: 6052, unit: "km", dayLength: 116.75}
+// and removes venus from cache
+```
+
+
+5. Clear Cache:
 ```javascript
 cache.clearAll();
-// clears all data in the cache 
+// clears all data in the cache
 ```
 
 ## Installation
@@ -93,6 +95,8 @@ cache.set('e', 'Mehak');
 cache.set('f', 'Anns');
 console.log(cache.get('a')); // returns null
 console.log(cache.get('b')); // returns 'Adeel'
+cache.remove('b'); // returns 'Adeel' and removes from cache
+console.log(cache.get('b')); // returns null
 console.log(cache.get('c')); // return 'Hammad'
 cache.clearAll();
 console.log(cache.get('c')); // returns null
