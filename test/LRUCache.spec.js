@@ -14,7 +14,7 @@ describe('LRUCache', () => {
   cache.set('a', 'Adeel');
   cache.set('b', 'Murtaza');
   cache.set('c', 'Hammad');
-  cache.set('d', 'Ghalib');
+  cache.set('d', 0);
   cache.set('e', 'Mehak');
 
   it('sets provided items in the cache', () => {
@@ -27,6 +27,10 @@ describe('LRUCache', () => {
   it('removes the least recently used element when retention policy kicks in', () => {
     expect(cache.size()).to.equal(CACHE_LIMIT);
     expect(cache.get('a')).to.equal(null);
+  });
+
+  it('returns the cached item with FALSY value if available in LRUCache', () => {
+    expect(cache.get('d')).to.equal(0);
   });
 
   it('returns the cached item if available in LRUCache', () => {
