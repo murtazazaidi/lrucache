@@ -44,7 +44,7 @@ class LRUCache {
    */
   get = (key) => {
     const data = this.data[key];
-    if (!data) {
+    if (data === undefined) {
       return null;
     }
     this.doublyList.repositionToRecent(key);
@@ -57,7 +57,7 @@ class LRUCache {
    */
   remove = (key) => {
     const data = this.data[key];
-    if (!data) {
+    if (data === undefined) {
       return null;
     }
     delete this.data[key];

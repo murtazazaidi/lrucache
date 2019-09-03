@@ -1,6 +1,6 @@
 {
   "name": "simple-lrucache",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Least Recently Used Cache",
   "main": "lib/LRUCache.js",
   "scripts": {
